@@ -191,7 +191,7 @@ def Adem_to_DL_Gen( adem: Callable[ [ int, int, int ], List ] ) -> Callable[ [in
         if len(gen.ops) == 0:
             new_gen = Generator( [ i ], gen.gen, gen.gen_deg, gen.op_func )
             return Elt([ Monomial( [ new_gen ] ) ])
-        if i < gen.ops[0]:
+        if i <= gen.ops[0]:
             new_gen = Generator( [i, *gen.ops], gen.gen, gen.gen_deg, gen.op_func )
 
         # constructing DL_Elt for iterative case
@@ -205,15 +205,16 @@ def Adem_to_DL_Gen( adem: Callable[ [ int, int, int ], List ] ) -> Callable[ [in
 
     return DL_Gen
 
-def base_degs_to_gens( max_weight: int, max_dim: int, base_degs: List[ int ], op_func: Callable[ [ int, int ], int ], op_range: Callable[ [ int ], Iterable ] ) -> List[ Generator ]:
+def base_degs_to_gens( max_weight: int, max_dim: int, base_degs: List[ int ], op_func: Callable[ [ int, int ], int ], op_range: Callable[ [ int, int ], Iterable ] ) -> List[ Generator ]:
     gens = [ Generator( [], i, base_degs[i], op_func ) for i in range(len(base_degs)) ]
     new_gens = gens.copy()
     weight = 2
     while weight <= max_weight:
         newer_gens = []
         for gen in new_gens:
-            next_op = gen.ops[0] if gen.ops else max_dim
-            gen_with_ops = [ Generator( [i, *gen.ops], gen.gen, gen.gen_deg, gen.op_func ) for i in range( 1, min( 5, max_dim ) ) if i <= next_op ]
+            op_deg = gen.ops[0] if gen.ops else max_dim
+            gen_with_ops = [ Generator( [i, *gen.ops], gen.gen, gen.gen_deg, gen.op_func ) for i in op_range( gen.deg, op_deg ) ]
+            
             newer_gens.extend( gen_with_ops )
         gens.extend( newer_gens )
         new_gens = newer_gens # update for next iteration

@@ -1,6 +1,6 @@
 import json
 dirname = 'json_files/'
-filename = 'Brow'
+filename = '3gen'
 
 def get_lines(file, line_numbers):
     return (x for i, x in enumerate(file) if i in line_numbers)

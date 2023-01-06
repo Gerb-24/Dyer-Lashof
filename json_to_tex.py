@@ -7,8 +7,8 @@ with open(filename, 'r') as file:
 gens = data['gens']
 
 
-min_deg = gens[0]['deg']
-max_deg = gens[-1]['deg']
+min_deg = min( [gen['deg'] for gen in gens ] )
+max_deg = max( [gen['deg'] for gen in gens] )
 cols = max_deg - min_deg + 1
 
 # sort by degrees
