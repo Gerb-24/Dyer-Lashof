@@ -74,18 +74,16 @@ ans_list = []
 for pow in op_strings_dic:
     pow_text = f'The dual Steenrod operations for $i={pow}$'
     tot_op_s = '\n'.join( op_strings_dic[pow] )
-    ans = f'''{pow_text}
-\[\\begin{{tikzcd}}
+    ans = f'''
+\\begin{{tikzcd}}
 {tot_gen_s}
 {tot_op_s}
-\end{{tikzcd}}\]'''
+\end{{tikzcd}}'''
     ans_list.append( ans )
 
 tot_ans = '\n\n'.join( ans_list ) 
 
 
-
-# \arrow[from=1-1, to=1-2]
 
 with open('output.tex', 'w') as file:
     file.write( tot_ans )
