@@ -1,0 +1,74 @@
+ops on monomial 0: Q^2(x_0)
+ops on monomial 1: Q^3(x_0)
+ops on monomial 2: Q^4(x_0)
+   Sq_1: Q^3(x_0): 1
+   Sq_2: Q^2(x_0): 0
+ops on monomial 3: Q^5(x_0)
+   Sq_2: Q^3(x_0): 1
+ops on monomial 4: Q^6(x_0)
+   Sq_1: Q^5(x_0): 3
+   Sq_3: Q^3(x_0): 1
+ops on monomial 5: Q^7(x_0)
+ops on monomial 6: Q^8(x_0)
+   Sq_1: Q^7(x_0): 5
+   Sq_2: Q^6(x_0): 4
+   Sq_4: Q^4(x_0): 2
+ops on monomial 7: Q^3(x_1)
+   Sq_2: Q^2(x_0): 0
+ops on monomial 8: Q^4(x_1)
+   Sq_1: Q^3(x_1): 7
+   Sq_2: Q^3(x_0): 1
+   Sq_3: Q^2(x_0): 0
+ops on monomial 9: Q^5(x_1)
+   Sq_2: Q^4(x_0): 2
+   Sq_2: Q^3(x_1): 7
+ops on monomial 10: Q^6(x_1)
+   Sq_1: Q^5(x_1): 9
+   Sq_2: Q^5(x_0): 3
+   Sq_3: Q^4(x_0): 2
+   Sq_3: Q^3(x_1): 7
+   Sq_4: Q^3(x_0): 1
+ops on monomial 11: Q^7(x_1)
+   Sq_2: Q^6(x_0): 4
+   Sq_4: Q^4(x_0): 2
+ops on monomial 12: x_1 * x_0
+   Sq_1: Q^2(x_0): 0
+
+ops on monomial 0: x_0*x_0
+ops on monomial 1: x_0*x_1
+   Sq_1: x_0*x_0
+ops on monomial 2: Q^3 x_0
+ops on monomial 3: x_1*x_1
+   Sq_1: x_0*x_1
+   Sq_1: x_1*x_0
+   Sq_2: x_0*x_0
+ops on monomial 4: Q^4 x_0
+   Sq_1: Q^3 x_0
+   Sq_2: Q^2 x_0
+ops on monomial 5: Q^5 x_0
+   Sq_2: Q^3 x_0
+ops on monomial 6: Q^4 x_1
+   Sq_1: Q^3 x_1
+   Sq_2: Q^3 x_0
+   Sq_2: Q^2 x_1
+   Sq_3: Q^2 x_0
+ops on monomial 7: Q^6 x_0
+   Sq_1: Q^5 x_0
+   Sq_3: Q^3 x_0
+ops on monomial 8: Q^5 x_1
+   Sq_2: Q^4 x_0
+   Sq_2: Q^3 x_1
+ops on monomial 9: Q^7 x_0
+ops on monomial 10: Q^6 x_1
+   Sq_1: Q^5 x_1
+   Sq_2: Q^5 x_0
+   Sq_3: Q^4 x_0
+   Sq_3: Q^3 x_1
+   Sq_4: Q^3 x_0
+ops on monomial 11: Q^8 x_0
+   Sq_1: Q^7 x_0
+   Sq_2: Q^6 x_0
+   Sq_4: Q^4 x_0
+ops on monomial 12: Q^7 x_1
+   Sq_2: Q^6 x_0
+   Sq_4: Q^4 x_0
