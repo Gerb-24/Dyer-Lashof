@@ -26,7 +26,7 @@ class Operation():
         return f'Q^{self.power}({self.next})'
 
     def output_str(self):
-        return self.__str__()
+        return f'Q^{{{self.power}}} ({self.next.output_str()})'
 
     def __eq__(self, __o: object) -> bool:
         return self.__class__ == __o.__class__ and self.power == __o.power and self.next == __o.next
@@ -42,7 +42,7 @@ class Product():
         return f'{self.next_0} * {self.next_1}'
     
     def output_str(self):
-        return f'\left [{self.next_0},{self.next_1} \\right ]'
+        return f'{self.next_0.output_str()} * {self.next_1.output_str()}'
     
     def __eq__(self, __o: object) -> bool:
         return self.__class__ == __o.__class__ and self.next_0 == __o.next_0 and self.next_1 == __o.next_1
@@ -92,8 +92,8 @@ def elt_sum( elt_list):
     return ans
 
 file = 'M2'
-max_dim = 10
-max_weight = 2
+max_dim = 15
+max_weight = 4
 
 base_module = F2_Module( f'json_files/{file}.json' )
 base_degs = base_module.degs
@@ -346,7 +346,7 @@ def Product_Basis_func( operation_order ):
     return generators
 
 def monomials_to_data( monomials ):
-    min_deg = monomials[0].degree
+    min_deg = min( [ mon.degree for mon in monomials ] )
     data_list = [ {'name': node.output_str(), 'deg': node.degree, 'ops': {}} for node in monomials ]
     for ind, node in enumerate( monomials ):
         print( f'ops on monomial {ind}: {node}' )

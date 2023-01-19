@@ -83,7 +83,5 @@ for pow in op_strings_dic:
 
 tot_ans = '\n\n'.join( ans_list ) 
 
-
-
 with open('output.tex', 'w') as file:
     file.write( tot_ans )

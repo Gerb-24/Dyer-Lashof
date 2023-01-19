@@ -25,10 +25,10 @@ class Operation():
         self.weight = 2*node.weight
     
     def __str__(self) -> str:
-        return f'Q^{self.power}({self.next})'
+        return f'Q_{self.power}({self.next})'
 
     def output_str(self):
-        return self.__str__()
+        return f'Q_{self.power}({self.next.output_str()})'
 
     def __eq__(self, __o: object) -> bool:
         return self.__class__ == __o.__class__ and self.power == __o.power and self.next == __o.next
@@ -44,7 +44,7 @@ class Product():
         return f'{self.next_0} * {self.next_1}'
     
     def output_str(self):
-        return f'{self.next_0} * {self.next_1}'
+        return f'{self.next_0.output_str()} * {self.next_1.output_str()}'
     
     def __eq__(self, __o: object) -> bool:
         return self.__class__ == __o.__class__ and self.next_0 == __o.next_0 and self.next_1 == __o.next_1
@@ -60,7 +60,7 @@ class Browder():
         return f'[{self.next_0},{self.next_1}]'
 
     def output_str(self):
-        return f'\left [{self.next_0},{self.next_1} \\right ]'
+        return f'\left [{self.next_0.output_str()},{self.next_1.output_str()} \\right ]'
 
     def __eq__(self, __o: object) -> bool:
         return self.__class__ == __o.__class__ and self.next_0 == __o.next_0 and self.next_1 == __o.next_1
@@ -110,7 +110,7 @@ def elt_sum( elt_list):
     return ans
 
 file = 'M2'
-max_dim = 20
+max_dim = 15
 max_weight = 4
 
 base_module = F2_Module( f'json_files/{file}.json' )
@@ -218,7 +218,8 @@ def Product_func( node_0, node_1 ):
             )
         )
         return elt
-    if node_0.__class__ in { Operation, Generator }:
+
+    if node_0.__class__ in { Browder, Operation, Generator }:
         if node_1.__class__ == Product:
             if operation_order.index( node_0 ) < operation_order.index( node_1.next_0 ):
                 elt_0 = Element(
@@ -233,12 +234,12 @@ def Product_func( node_0, node_1 ):
                 )
                 return elt
 
-        if node_1.__class__ in { Operation, Generator }:
+        if node_1.__class__ in { Browder, Operation, Generator }:
             if node_0 == node_1:
                 elt = Element(
                     [
                         Operation(
-                            node_0.degree,
+                            0,
                             node_0
                         )
                     ]
@@ -635,7 +636,7 @@ def Product_Basis_func( operation_order ):
     return generators
 
 def monomials_to_data( monomials ):
-    min_deg = monomials[0].degree
+    min_deg = min( [ mon.degree for mon in monomials ] )
     data_list = [ {'name': node.output_str(), 'deg': node.degree, 'ops': {}} for node in monomials ]
     for ind, node in enumerate( monomials ):
         print( f'ops on monomial {ind}: {node}' )
@@ -656,10 +657,7 @@ operation_order = Operation_Basis_func( browder_order )
 monomials = Product_Basis_func( operation_order )[ len( base_degs): ]
 data = monomials_to_data( monomials )
 
-# # save as output.json in the current directory
-# with open('output.json', 'w') as file:
-#     _data = json.dumps(data, indent=2)
-#     file.write(_data)
-
-# for mon in monomials:
-#     print( f'{mon}, degree: {mon.degree}' )
+# save as output.json in the current directory
+with open('output.json', 'w') as file:
+    _data = json.dumps(data, indent=2)
+    file.write(_data)

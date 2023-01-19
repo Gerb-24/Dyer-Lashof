@@ -15,8 +15,11 @@ def ordered_cartan( i ):
 
 def nishida( r, s, d ):
     ans = []
-    for i in range( math.ceil( (r-s)/2 ), math.floor( r/2 ) + 1 ):
-        nishida_factor = math.comb( d + s - r, r - 2*i )
+    for i in range( 0, math.floor( r/2 ) + 1 ):
+        try:
+            nishida_factor = math.comb( d + s - r, r - 2*i )
+        except ValueError:
+            return ans
         if nishida_factor % 2 == 1:
             ans.append( ( s - r + 2*i, i) )
     return ans

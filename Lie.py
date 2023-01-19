@@ -329,7 +329,7 @@ def Operation_Basis_func( generators ):
     return generators
 
 def monomials_to_data( monomials ):
-    min_deg = monomials[0].degree
+    min_deg = min( [ mon.degree for mon in monomials ] )
     data_list = [ {'name': node.output_str(), 'deg': node.degree, 'ops': {}} for node in monomials ]
     for ind, node in enumerate( monomials ):
         print( f'ops on monomial {ind}: {node}' )
