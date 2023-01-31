@@ -9,7 +9,10 @@ def cartan( i ):
 def nishida( r, s ):
     ans = []
     for t in range( 0, math.floor( r/2 ) + 1 ):
-        nishida_factor = math.comb( s-r, r - 2*t )
+        try:
+            nishida_factor = math.comb( s-r, r - 2*t )
+        except ValueError:
+            return ans   
         if nishida_factor % 2 == 1:
             ans.append( ( s - r + t, t) )
     return ans

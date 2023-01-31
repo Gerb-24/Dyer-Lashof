@@ -1,4 +1,5 @@
 import json
+import os
 from Lie_functions import nishida, adem, cartan
 
 class F2_Module():
@@ -91,155 +92,176 @@ def elt_sum( elt_list):
         ans += elt
     return ans
 
-file = 'M2'
-max_dim = 10
-max_weight = 5
+''' This creates a file called output.json '''
+def operad( file, max_dim, max_weight ):
+    base_module = F2_Module( file )
+    base_degs = base_module.degs
+    base_ops = base_module.ops
 
-base_module = F2_Module( f'json_files/{file}.json' )
-base_degs = base_module.degs
-base_ops = base_module.ops
-
-def Steenrod( i, node ):
-    if i == 0:
-        elt = Element([
-            node
-        ]
-        )
-        return elt
-
-    if node.__class__ == Generator:
-        if i in base_ops[ node.index ]:
-            elt = Element(
-                [
-                    Generator( j, base_degs[j] ) for j in base_ops[ node.index ][ i ]
-                ]
+    def Steenrod( i, node ):
+        if i == 0:
+            elt = Element([
+                node
+            ]
             )
             return elt
-        else:
-            return Element([])
 
-    if node.__class__ == Operation:
-        # nishida relations
-        elt_list = [
-            Operation_func(
-                a,
-                Steenrod(
-                    b,
-                    node.next
+        if node.__class__ == Generator:
+            if i in base_ops[ node.index ]:
+                elt = Element(
+                    [
+                        Generator( j, base_degs[j] ) for j in base_ops[ node.index ][ i ]
+                    ]
                 )
-            )
-            for ( a, b ) in nishida( i, node.power )
-        ]
-        return elt_sum( elt_list )
+                return elt
+            else:
+                return Element([])
 
-    if node.__class__ == Product:
-        # cartan formula
-        elt_list = [
-            Product_func(
-                Steenrod(
+        if node.__class__ == Operation:
+            # nishida relations
+            elt_list = [
+                Operation_func(
                     a,
-                    node.next_0
-                ),
-                Steenrod(
-                    b,
-                    node.next_1
+                    Steenrod(
+                        b,
+                        node.next
+                    )
                 )
-            )
-            for ( a, b ) in cartan( i )
-        ]
-        return elt_sum( elt_list )
+                for ( a, b ) in nishida( i, node.power )
+            ]
+            return elt_sum( elt_list )
 
-def Product_func( node_0, node_1 ):
-    if node_0.__class__ == Element and node_1.__class__ == Element:
-        # bilinear
-        elt_list = []
-        for _node_0 in node_0.nodes:
-            for _node_1 in node_1.nodes:
-                elt_list.append( 
-                    Product_func( _node_0, _node_1 ) 
+        if node.__class__ == Product:
+            # cartan formula
+            elt_list = [
+                Product_func(
+                    Steenrod(
+                        a,
+                        node.next_0
+                    ),
+                    Steenrod(
+                        b,
+                        node.next_1
+                    )
                 )
-        return elt_sum( elt_list )
-    
-    if node_0.__class__ == Operation or node_1.__class__ == Operation:
-        return Element([])
-    
-    if node_0.__class__ in { Product, Generator } and node_1.__class__ in { Product, Generator }:
-        if node_0 == node_1:
+                for ( a, b ) in cartan( i )
+            ]
+            return elt_sum( elt_list )
+
+    def Product_func( node_0, node_1 ):
+        if node_0.__class__ == Element and node_1.__class__ == Element:
+            # bilinear
+            elt_list = []
+            for _node_0 in node_0.nodes:
+                for _node_1 in node_1.nodes:
+                    elt_list.append( 
+                        Product_func( _node_0, _node_1 ) 
+                    )
+            return elt_sum( elt_list )
+        
+        if node_0.__class__ == Operation or node_1.__class__ == Operation:
+            return Element([])
+        
+        if node_0.__class__ in { Product, Generator } and node_1.__class__ in { Product, Generator }:
+            if node_0 == node_1:
+                elt = Element(
+                    [
+                        Operation(
+                            node_0.degree,
+                            node_0
+                        )
+                    ]
+                )
+                return elt
+            
+            index_0, index_1 = bracket_order.index( node_0 ), bracket_order.index( node_1 )
+
+            if index_0 > index_1:
+                return Product_func( node_1, node_0 )
+
+            if node_1.__class__ == Product:
+                index_1_0 = bracket_order.index( node_1.next_0 )
+                if index_1_0 > index_0:
+                    elt_list = [
+                        Product_func(
+                            Element(
+                                [
+                                    node_1.next_0
+                                ]
+                            ),
+                            Product_func(
+                                node_0,
+                                node_1.next_1
+                            )
+                        ),
+                        Product_func(
+                            Element(
+                                [
+                                    node_1.next_1
+                                ]
+                            ),
+                            Product_func(
+                                node_0,
+                                node_1.next_0
+                            )
+                        ),
+                    ]
+                    return elt_sum( elt_list )
+                    
+
+            
             elt = Element(
                 [
-                    Operation(
-                        node_0.degree,
-                        node_0
+                    Product(
+                        node_0,
+                        node_1
                     )
                 ]
             )
             return elt
-        
-        index_0, index_1 = bracket_order.index( node_0 ), bracket_order.index( node_1 )
 
-        if index_0 > index_1:
-            return Product_func( node_1, node_0 )
+        raise Exception
 
-        if node_1.__class__ == Product:
-            index_1_0 = bracket_order.index( node_1.next_0 )
-            if index_1_0 > index_0:
-                elt_list = [
-                    Product_func(
-                        Element(
-                            [
-                                node_1.next_0
-                            ]
-                        ),
-                        Product_func(
-                            node_0,
-                            node_1.next_1
-                        )
-                    ),
-                    Product_func(
-                        Element(
-                            [
-                                node_1.next_1
-                            ]
-                        ),
-                        Product_func(
-                            node_0,
-                            node_1.next_0
-                        )
-                    ),
+    def Operation_func( i, node ):
+        if node.__class__ == Element:
+            # additivity
+            elt_list = [ 
+                Operation_func( 
+                    i, 
+                    _node
+                    ) 
+                for _node in node.nodes 
                 ]
-                return elt_sum( elt_list )
-                
+            return elt_sum( elt_list )
 
-        
-        elt = Element(
-            [
-                Product(
-                    node_0,
-                    node_1
+        if i < node.degree:
+            return Element([])
+
+        if node.__class__ == Operation:
+            if i > 2*node.power:
+                elt = Element(
+                    [
+                        Operation(
+                            i,
+                            node
+                        )
+                    ]
                 )
+                return elt
+            # adem relation
+            elt_list = [
+                Operation_func(
+                    a,
+                    Operation_func(
+                        b,
+                        node.next
+                    )
+                )
+                for ( a, b ) in adem( i, node.power )
             ]
-        )
-        return elt
+            return elt_sum( elt_list )
 
-    raise Exception
-
-def Operation_func( i, node ):
-    if node.__class__ == Element:
-        # additivity
-        elt_list = [ 
-            Operation_func( 
-                i, 
-                _node
-                ) 
-            for _node in node.nodes 
-            ]
-        return elt_sum( elt_list )
-
-    if i < node.degree:
-        return Element([])
-
-    if node.__class__ == Operation:
-        if i > 2*node.power:
+        if node.__class__ == Product or node.__class__ == Generator:
             elt = Element(
                 [
                     Operation(
@@ -249,107 +271,86 @@ def Operation_func( i, node ):
                 ]
             )
             return elt
-        # adem relation
-        elt_list = [
-            Operation_func(
-                a,
-                Operation_func(
-                    b,
-                    node.next
-                )
-            )
-            for ( a, b ) in adem( i, node.power )
-        ]
-        return elt_sum( elt_list )
 
-    if node.__class__ == Product or node.__class__ == Generator:
-        elt = Element(
-            [
-                Operation(
-                    i,
-                    node
-                )
-            ]
-        )
-        return elt
+    def Product_Basis_func():
+        generators = [ Generator( i, d ) for i, d in enumerate( base_degs ) ]
+        weight = 1
+        while weight < max_weight:
+            brackets = []
+            weight += 1
 
-def Product_Basis_func():
-    generators = [ Generator( i, d ) for i, d in enumerate( base_degs ) ]
-    weight = 1
-    while weight < max_weight:
-        brackets = []
-        weight += 1
-
-        for index_1, node_1 in enumerate( generators ):
-            for index_0, node_0 in enumerate( generators[:index_1] ):
-                # check dimension
-                if node_0.degree + node_1.degree - 1 >= max_dim:
-                    continue
-
-                # check weight
-                if node_0.weight + node_1.weight != weight:
-                    continue
-
-                # check jacobi
-                if node_1.__class__ == Product:
-                    index_1_0 = generators.index( node_1.next_0 )
-                    if index_1_0 > index_0:
+            for index_1, node_1 in enumerate( generators ):
+                for index_0, node_0 in enumerate( generators[:index_1] ):
+                    # check dimension
+                    if node_0.degree + node_1.degree - 1 >= max_dim:
                         continue
-                brackets.append( Product( node_0, node_1 ) )
-        generators.extend( brackets )
 
-    return generators
+                    # check weight
+                    if node_0.weight + node_1.weight != weight:
+                        continue
 
-def Operation_Basis_func( generators ):
-    operations = generators.copy()
-    while operations:
-        new_operations = []
-        for node in operations:       
-            if 2*node.weight > max_weight:
-                continue
-            if node.__class__ == Operation:
-                operations_list = [
-                    Operation(
-                        power,
-                        node
-                    )
-                for power in range( 2*node.power + 1, max_dim - node.degree )
-                ]
-            else:
-                operations_list = [
-                    Operation(
-                        power,
-                        node
-                    )
-                for power in range( node.degree, max_dim - node.degree )
-                ]
-            new_operations.extend( operations_list )
-        generators.extend( new_operations )
-        operations = new_operations.copy()
-    return generators
+                    # check jacobi
+                    if node_1.__class__ == Product:
+                        index_1_0 = generators.index( node_1.next_0 )
+                        if index_1_0 > index_0:
+                            continue
+                    brackets.append( Product( node_0, node_1 ) )
+            generators.extend( brackets )
 
-def monomials_to_data( monomials ):
-    min_deg = min( [ mon.degree for mon in monomials ] )
-    data_list = [ {'name': node.output_str(), 'deg': node.degree, 'ops': {}} for node in monomials ]
-    for ind, node in enumerate( monomials ):
-        print( f'ops on monomial {ind}: {node}' )
-        for i in range( 1, node.degree - min_deg + 1 ):
-            sq_list = []
-            for _node in Steenrod( i, node ).nodes:
-                index = monomials.index( _node )
-                print( f'   Sq_{i}: {_node}: {index}' )
-                sq_list.append( index )
-            if sq_list:
-                data_list[ind]['ops'][i] = sq_list
+        return generators
 
-    data = { 'gens': data_list }
-    return data
+    def Operation_Basis_func( generators ):
+        operations = generators.copy()
+        while operations:
+            new_operations = []
+            for node in operations:       
+                if 2*node.weight > max_weight:
+                    continue
+                if node.__class__ == Operation:
+                    operations_list = [
+                        Operation(
+                            power,
+                            node
+                        )
+                    for power in range( 2*node.power + 1, max_dim - node.degree )
+                    ]
+                else:
+                    operations_list = [
+                        Operation(
+                            power,
+                            node
+                        )
+                    for power in range( node.degree, max_dim - node.degree )
+                    ]
+                new_operations.extend( operations_list )
+            generators.extend( new_operations )
+            operations = new_operations.copy()
+        return generators
 
-bracket_order = Product_Basis_func(  )
-monomials = Operation_Basis_func( bracket_order )[ len(base_degs): ]
-data = monomials_to_data( monomials )
+    def monomials_to_data( monomials ):
+        min_deg = min( [ mon.degree for mon in monomials ] )
+        data_list = [ {'name': node.output_str(), 'deg': node.degree, 'ops': {}} for node in monomials ]
+        for ind, node in enumerate( monomials ):
+            print( f'ops on monomial {ind}: {node}' )
+            for i in range( 1, node.degree - min_deg + 1 ):
+                sq_list = []
+                for _node in Steenrod( i, node ).nodes:
+                    index = monomials.index( _node )
+                    print( f'   Sq_{i}: {_node}: {index}' )
+                    sq_list.append( index )
+                if sq_list:
+                    data_list[ind]['ops'][i] = sq_list
 
-# save as output.json in the current directory
-with open('output.json', 'w') as file:
-    _data = json.dumps(data, indent=2)
-    file.write(_data)
+        data = { 'gens': data_list }
+        return data
+
+    bracket_order = Product_Basis_func(  )
+    monomials = Operation_Basis_func( bracket_order )[ len(base_degs): ]
+    data = monomials_to_data( monomials )
+
+    # save as output.json in the current directory
+    dirname = os.path.dirname( file )
+    output_name = os.path.join( dirname, 'output.json' )
+    with open(output_name, 'w') as file:
+        _data = json.dumps(data, indent=2)
+        file.write(_data)
