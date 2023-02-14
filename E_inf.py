@@ -188,6 +188,17 @@ def operad( file, max_dim, max_weight ):
                     )
                     return elt
 
+                if node_0 == node_1.next_0:
+                    elt = Product_func(
+                        Operation(
+                                node_0.degree,
+                                node_0
+                            ),
+                            node_1.next_1
+                    )
+                    return elt
+                            
+
             if node_1.__class__ in { Operation, Generator }:
                 if node_0 == node_1:
                     elt = Element(

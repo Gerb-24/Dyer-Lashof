@@ -24,7 +24,7 @@ class Operation():
         self.weight = 2*node.weight
     
     def __str__(self) -> str:
-        return f'Q^{self.power}({self.next})'
+        return f'Q^{{{self.power}}}({self.next})'
 
     def output_str(self):
         return self.__str__()

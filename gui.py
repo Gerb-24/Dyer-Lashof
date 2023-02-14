@@ -118,9 +118,9 @@ class MyApp(QWidget):
         self.compile_btn.clicked.connect( self.compile )
         self.json_to_tex_btn.clicked.connect( self.compile_json_to_tex )
 
-        # # handling settings
-        # self.save_settings_btn.clicked.connect( self.save )
-        # self.load_settings()
+        # handling settings
+        self.save_settings_btn.clicked.connect( self.save )
+        self.load_settings()
 
     # multi-bool handler
     def set_rb( self, var_key='', sub_key='' ):
@@ -210,8 +210,6 @@ class MyApp(QWidget):
         for dir_key in self.dir_le_data:
             dir_path = self.data[ dir_key ]
             self.dir_le_data[ dir_key ].setText( os.path.basename( dir_path ) )
-        for key in self.bool_cb_data:
-            self.bool_cb_data[ key ].setChecked( self.data[ key ] )
 
 
 if __name__ == '__main__':

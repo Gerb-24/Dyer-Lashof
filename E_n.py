@@ -229,6 +229,16 @@ def operad( file, max_dim, max_weight, n ):
                     )
                     return elt
 
+                if node_0 == node_1.next_0:
+                    elt = Product_func(
+                        Operation(
+                                0,
+                                node_0
+                            ),
+                            node_1.next_1
+                    )
+                    return elt
+
             if node_1.__class__ in { Browder, Operation, Generator }:
                 if node_0 == node_1:
                     elt = Element(
