@@ -6,7 +6,7 @@
   "json_file": "",
   "json_dir": "",
   "operad": "E_n",
-  "n": "5",
-  "max_dim": "20",
-  "max_weight": "4"
+  "n": 5,
+  "max_dim": 20,
+  "max_weight": 4
 }

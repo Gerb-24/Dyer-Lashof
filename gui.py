@@ -31,12 +31,12 @@ class MyApp(QWidget):
 
             'operad':                       'E_n',
 
-            'n':                            '',
-            'max_dim':                      '',
-            'max_weight':                   '',
+            'n':                            0,
+            'max_dim':                      0,
+            'max_weight':                   0,
         }
 
-        self.le_data = {
+        self.int_data = {
             'n':                self.n_le,
             'max_dim':          self.max_dim_le,
             'max_weight':       self.max_weight_le,
@@ -99,12 +99,12 @@ class MyApp(QWidget):
                 self.rb_btn_data[ var_key ][ sub_key ].clicked.connect( lambda _, var=var_key, sub=sub_key: self.set_rb( var_key=var, sub_key=sub ) )
             self.set_rb( var_key=var_key, sub_key=self.rb_default_data[ var_key ] )
 
-        # connecting string logic
+        # connecting int logic
         onlyInt = QIntValidator()
-        for tex in self.le_data:
-            onlyInt.setRange(0, 99)
-            self.le_data[ tex ].setValidator(onlyInt)
-            self.le_data[ tex ].textChanged.connect( lambda _, t=tex: self.assign_text_to_var( tex=t ) )
+        for tex in self.int_data:
+            onlyInt.setRange(0, 99) # this makes sure that we can only use integers
+            self.int_data[ tex ].setValidator(onlyInt)
+            self.int_data[ tex ].textChanged.connect( lambda _, t=tex: self.assign_int_to_var( tex=t ) )
 
         # connecting file logic
         for file in self.file_btn_data:
@@ -151,8 +151,9 @@ class MyApp(QWidget):
             stylesheet =  on_style if self.rb_bool_data[ var_key ][ key ] else off_style
             self.rb_btn_data[ var_key ][ key ].setStyleSheet( stylesheet )
 
-    def assign_text_to_var( self, tex='' ):
-        self.data[ tex ] = self.le_data[tex].text()
+    def assign_int_to_var( self, tex='' ):
+        str = self.int_data[tex].text()
+        self.data[ tex ] = 0 if not str else int(str)
 
     def load_file( self, file='' ):
         dir_key = self.file_dir_data[ file ]
@@ -164,31 +165,61 @@ class MyApp(QWidget):
 
 
     def compile_txt_to_json( self ):
+        self.log_out('empty')
         filename = self.data[ 'txt_file' ]
         if filename == '':
+            self.log_out('no_file')
             return
-        mdf_to_json_func( filename )
-
+        try:
+            mdf_to_json_func( filename )
+            self.log_out('done')
+        except FileNotFoundError:
+            self.log_out('not_found')
+        except Exception:
+            self.log_out('general')
+        
     def compile_json_to_tex( self ):
+        self.log_out('empty')
         filename = self.data[ 'json_file' ]
         if filename == '':
+            self.log_out('no_file')
             return
-        json_to_tex_func( filename )
+        try:
+            json_to_tex_func( filename )
+            self.log_out('done')
+        except FileNotFoundError:
+            self.log_out('not_found')
+        except Exception:
+            self.log_out('general')
 
     def compile( self ):
+        self.log_out('empty')
         filename = self.data[ 'dl_file' ]
         if filename == '':
+            self.log_out('no_file')
             return
         operad = self.data[ 'operad' ]
         max_dim = int( self.data[ 'max_dim' ] )
         max_weight = int( self.data[ 'max_weight' ] )
-        if operad == 'sLie':
-            Lie_operad( filename, max_dim, max_weight )
-        elif operad == 'E_inf':
-            E_inf_operad( filename, max_dim, max_weight )
-        elif operad == 'E_n':
-            n = int( self.data[ 'n' ] )
-            E_n_operad( filename, max_dim, max_weight, n )
+        if max_weight < 2:
+            self.log_out('weight')
+            return
+        try:
+            if operad == 'sLie':
+                Lie_operad( filename, max_dim, max_weight )
+            elif operad == 'E_inf':
+                E_inf_operad( filename, max_dim, max_weight )
+            elif operad == 'E_n':
+                n = int( self.data[ 'n' ] )
+                if n < 1:
+                    self.log_out( 'n' )
+                    return
+                E_n_operad( filename, max_dim, max_weight, n )
+            self.log_out('done')
+        except FileNotFoundError:
+            self.log_out('not_found')
+        except Exception:
+            self.log_out('general+')
 
     # settings functions
     def save( self ):
@@ -202,8 +233,8 @@ class MyApp(QWidget):
             load_data = json.loads(f.read())
         for key in load_data:
             self.data[ key ] = load_data[ key ]
-        for tex in self.le_data:
-            self.le_data[ tex ].setText( self.data[ tex ] )
+        for tex in self.int_data:
+            self.int_data[tex].setText( str( self.data[ tex ] ) )
         for file in self.file_le_data:
             file_path = self.data[ file ]
             self.file_le_data[ file ].setText( os.path.basename( file_path ) )
@@ -211,6 +242,19 @@ class MyApp(QWidget):
             dir_path = self.data[ dir_key ]
             self.dir_le_data[ dir_key ].setText( os.path.basename( dir_path ) )
 
+    def log_out(self, key):
+        print('this is called')
+        logging_dic = {
+            'empty':        'Currently compiing...',
+            'no_file':      'ERROR: No file currently opened',
+            'not_found':    'ERROR: The input file does not seem to exist anymore',
+            'general':      'ERROR: Something seems to be wrong in the input file',
+            'general+':     'ERROR: Something seems to be wrong in the input file, or the maximal degree might be too low',
+            'weight':       'ERROR: The input weight has to be at least 2',
+            'n':            'ERROR: The input n has to be at least 1',
+            'done':         'Done compiling, a new file is saved in the directory of the input file'
+        }
+        self.log.setText( logging_dic[ key ] )
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

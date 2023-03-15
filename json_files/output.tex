@@ -1,0 +1,698 @@
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_1"{description},from=1-13, to=1-12]
+\arrow["\Sq_1"{description},from=1-3, to=1-2]
+\arrow["\Sq_1"{description},from=1-5, to=1-4]
+\arrow["\Sq_1"{description},from=2-4, to=2-3]
+\arrow["\Sq_1"{description},from=2-6, to=2-5]
+\arrow["\Sq_1"{description},from=1-7, to=1-6]
+\arrow["\Sq_1"{description},from=1-16, to=1-15]
+\arrow["\Sq_1"{description},from=1-8, to=2-7]
+\arrow["\Sq_1"{description},from=1-11, to=1-10]
+\arrow["\Sq_1"{description},from=2-12, to=2-11]
+\arrow["\Sq_1"{description},from=1-14, to=2-13]
+\arrow["\Sq_1"{description},from=2-15, to=2-14]
+\arrow["\Sq_1"{description},from=2-17, to=2-16]
+\arrow["\Sq_1"{description},from=3-12, to=3-11]
+\arrow["\Sq_1"{description},from=3-15, to=3-14]
+\arrow["\Sq_1"{description},from=3-16, to=4-15]
+\arrow["\Sq_1"{description},from=2-2, to=1-1]
+\arrow["\Sq_1"{description},from=5-15, to=4-14]
+\arrow["\Sq_1"{description},from=4-5, to=3-4]
+\arrow["\Sq_1"{description},from=3-7, to=3-6]
+\arrow["\Sq_1"{description},from=4-6, to=5-5]
+\arrow["\Sq_1"{description},from=3-8, to=4-7]
+\arrow["\Sq_1"{description},from=3-9, to=2-8]
+\arrow["\Sq_1"{description},from=4-9, to=2-8]
+\arrow["\Sq_1"{description},from=6-15, to=4-14]
+\arrow["\Sq_1"{description},from=4-16, to=6-15]
+\arrow["\Sq_1"{description},from=4-16, to=5-15]
+\arrow["\Sq_1"{description},from=4-4, to=3-3]
+\arrow["\Sq_1"{description},from=6-5, to=3-4]
+\arrow["\Sq_1"{description},from=5-6, to=6-5]
+\arrow["\Sq_1"{description},from=5-6, to=4-5]
+\arrow["\Sq_1"{description},from=5-7, to=3-6]
+\arrow["\Sq_1"{description},from=4-8, to=5-7]
+\arrow["\Sq_1"{description},from=4-8, to=3-7]
+\arrow["\Sq_1"{description},from=6-6, to=5-5]
+\arrow["\Sq_1"{description},from=6-7, to=6-6]
+\arrow["\Sq_1"{description},from=6-7, to=4-6]
+\arrow["\Sq_1"{description},from=5-8, to=4-7]
+\arrow["\Sq_1"{description},from=5-9, to=5-8]
+\arrow["\Sq_1"{description},from=5-9, to=3-8]
+\arrow["\Sq_1"{description},from=2-10, to=4-9]
+\arrow["\Sq_1"{description},from=2-10, to=3-9]
+\arrow["\Sq_1"{description},from=4-12, to=4-11]
+\arrow["\Sq_1"{description},from=5-14, to=5-13]
+\arrow["\Sq_1"{description},from=6-13, to=5-12]
+\arrow["\Sq_1"{description},from=7-15, to=6-14]
+\arrow["\Sq_1"{description},from=5-16, to=1-15]
+\arrow["\Sq_1"{description},from=7-7, to=7-6]
+\arrow["\Sq_1"{description},from=6-9, to=6-8]
+\arrow["\Sq_1"{description},from=7-8, to=8-7]
+\arrow["\Sq_1"{description},from=4-10, to=7-9]
+\arrow["\Sq_1"{description},from=5-11, to=3-10]
+\arrow["\Sq_1"{description},from=8-8, to=2-7]
+\arrow["\Sq_1"{description},from=5-10, to=8-9]
+\arrow["\Sq_1"{description},from=9-9, to=9-8]
+\arrow["\Sq_1"{description},from=6-11, to=6-10]
+\arrow["\Sq_1"{description},from=6-12, to=4-11]
+\arrow["\Sq_1"{description},from=7-10, to=8-9]
+\arrow["\Sq_1"{description},from=7-11, to=7-10]
+\arrow["\Sq_1"{description},from=7-11, to=5-10]
+\arrow["\Sq_1"{description},from=10-9, to=9-8]
+\arrow["\Sq_1"{description},from=8-10, to=10-9]
+\arrow["\Sq_1"{description},from=8-10, to=9-9]
+\arrow["\Sq_1"{description},from=8-11, to=6-10]
+\arrow["\Sq_1"{description},from=7-12, to=8-11]
+\arrow["\Sq_1"{description},from=7-12, to=6-11]
+\arrow["\Sq_1"{description},from=7-13, to=4-12]
+\arrow["\Sq_1"{description},from=7-13, to=6-12]
+\arrow["\Sq_1"{description},from=8-12, to=2-11]
+\arrow["\Sq_1"{description},from=9-11, to=9-10]
+\arrow["\Sq_1"{description},from=8-13, to=9-12]
+\arrow["\Sq_1"{description},from=7-14, to=5-13]
+\arrow["\Sq_1"{description},from=10-11, to=9-10]
+\arrow["\Sq_1"{description},from=10-12, to=10-11]
+\arrow["\Sq_1"{description},from=10-12, to=9-11]
+\arrow["\Sq_1"{description},from=9-13, to=9-12]
+\arrow["\Sq_1"{description},from=8-14, to=9-13]
+\arrow["\Sq_1"{description},from=8-14, to=8-13]
+\arrow["\Sq_1"{description},from=8-15, to=5-14]
+\arrow["\Sq_1"{description},from=8-15, to=7-14]
+\arrow["\Sq_1"{description},from=10-10, to=2-9]
+\arrow["\Sq_1"{description},from=11-12, to=11-11]
+\arrow["\Sq_1"{description},from=10-13, to=5-12]
+\arrow["\Sq_1"{description},from=12-12, to=11-11]
+\arrow["\Sq_1"{description},from=11-13, to=12-12]
+\arrow["\Sq_1"{description},from=11-13, to=11-12]
+\arrow["\Sq_1"{description},from=9-14, to=6-13]
+\arrow["\Sq_1"{description},from=9-14, to=10-13]
+\arrow["\Sq_1"{description},from=10-14, to=4-13]
+\arrow["\Sq_1"{description},from=9-15, to=6-14]
+\arrow["\Sq_1"{description},from=6-16, to=7-15]
+\arrow["\Sq_1"{description},from=6-16, to=9-15]
+\arrow["\Sq_1"{description},from=12-11, to=3-10]
+\arrow["\Sq_1"{description},from=8-6, to=3-5]
+\arrow["\Sq_1"{description},from=9-7, to=7-6]
+\arrow["\Sq_1"{description},from=10-8, to=9-7]
+\arrow["\Sq_1"{description},from=10-8, to=7-7]
+\arrow["\Sq_1"{description},from=11-9, to=6-8]
+\arrow["\Sq_1"{description},from=11-10, to=11-9]
+\arrow["\Sq_1"{description},from=11-10, to=6-9]
+\arrow["\Sq_1"{description},from=11-8, to=8-7]
+\arrow["\Sq_1"{description},from=12-9, to=11-8]
+\arrow["\Sq_1"{description},from=12-9, to=7-8]
+\arrow["\Sq_1"{description},from=12-10, to=7-9]
+\arrow["\Sq_1"{description},from=13-11, to=12-10]
+\arrow["\Sq_1"{description},from=13-11, to=4-10]
+\arrow["\Sq_1"{description},from=13-12, to=12-11]
+\arrow["\Sq_1"{description},from=13-12, to=5-11]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_2"{description},curve={height=12pt},from=1-3, to=1-1]
+\arrow["\Sq_2"{description},curve={height=12pt},from=1-4, to=1-2]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-3, to=1-1]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-4, to=1-2]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-5, to=1-3]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-5, to=2-3]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-6, to=1-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=1-7, to=1-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=1-9, to=2-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=1-10, to=1-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=1-11, to=1-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-13, to=2-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-13, to=2-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-14, to=2-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-15, to=2-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-16, to=1-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-17, to=2-15]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-11, to=2-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-15, to=4-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-16, to=3-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-17, to=3-15]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-17, to=1-15]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-5, to=3-3]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-6, to=3-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-5, to=3-3]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-6, to=3-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-7, to=5-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-7, to=4-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-8, to=3-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=3-9, to=3-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-16, to=4-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-6, to=4-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-6, to=3-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-7, to=6-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-8, to=3-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-6, to=4-4]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-7, to=6-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-7, to=5-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-8, to=6-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-8, to=5-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-9, to=5-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-9, to=4-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-10, to=4-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=2-10, to=2-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-12, to=3-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-13, to=4-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-12, to=3-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-13, to=4-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-14, to=5-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-14, to=4-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-15, to=5-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-16, to=5-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-7, to=3-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-8, to=7-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-7, to=3-5]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-8, to=7-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-9, to=8-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-9, to=7-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=4-10, to=6-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=5-11, to=6-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-8, to=7-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-9, to=2-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-8, to=7-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-9, to=2-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-10, to=9-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-10, to=8-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-11, to=8-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-12, to=5-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-10, to=8-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-10, to=6-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-11, to=8-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-11, to=6-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-9, to=7-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-9, to=8-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-10, to=8-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-10, to=9-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-10, to=7-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-11, to=10-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-11, to=1-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-11, to=7-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-12, to=7-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-12, to=6-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-12, to=4-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-13, to=7-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-13, to=4-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-13, to=5-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-12, to=5-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-10, to=6-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-10, to=9-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-11, to=8-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-11, to=9-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-12, to=9-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-12, to=7-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-12, to=6-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-13, to=2-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-13, to=6-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-14, to=8-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=7-14, to=6-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-11, to=6-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-12, to=5-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-12, to=9-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-13, to=10-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-13, to=7-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-14, to=8-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-14, to=9-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-15, to=3-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=8-15, to=5-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-10, to=9-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-10, to=7-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-11, to=2-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-11, to=10-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-11, to=7-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-12, to=9-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-12, to=4-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-13, to=10-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-13, to=5-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-12, to=10-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-12, to=8-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-12, to=6-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-13, to=9-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-13, to=11-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-13, to=6-11]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-14, to=10-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-14, to=5-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-14, to=6-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-14, to=9-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-14, to=11-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-14, to=7-12]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-15, to=9-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-15, to=10-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=9-15, to=7-13]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-16, to=8-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-16, to=6-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=6-16, to=7-14]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-8, to=8-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=10-8, to=7-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-9, to=9-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-10, to=6-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=11-8, to=8-6]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-9, to=9-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-9, to=8-7]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-10, to=11-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=12-10, to=10-8]
+\arrow["\Sq_2"{description},curve={height=12pt},from=13-11, to=11-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=13-11, to=7-9]
+\arrow["\Sq_2"{description},curve={height=12pt},from=13-12, to=11-10]
+\arrow["\Sq_2"{description},curve={height=12pt},from=13-12, to=3-10]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_3"{description},curve={height=12pt},from=1-5, to=1-2]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-4, to=1-1]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-6, to=1-3]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-6, to=2-3]
+\arrow["\Sq_3"{description},curve={height=12pt},from=1-11, to=1-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=1-14, to=2-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-15, to=2-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-17, to=1-14]
+\arrow["\Sq_3"{description},curve={height=12pt},from=3-12, to=2-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=3-16, to=4-13]
+\arrow["\Sq_3"{description},curve={height=12pt},from=3-7, to=3-4]
+\arrow["\Sq_3"{description},curve={height=12pt},from=4-6, to=3-3]
+\arrow["\Sq_3"{description},curve={height=12pt},from=3-8, to=5-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=3-8, to=4-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-6, to=3-3]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-7, to=3-4]
+\arrow["\Sq_3"{description},curve={height=12pt},from=4-8, to=6-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-6, to=3-3]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-7, to=4-4]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-7, to=3-4]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-8, to=5-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-8, to=4-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-9, to=6-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-9, to=5-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-9, to=3-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=2-10, to=3-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-14, to=4-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-13, to=3-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-15, to=5-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-15, to=4-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-9, to=7-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-8, to=3-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=4-10, to=8-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=4-10, to=7-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=5-10, to=2-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-9, to=7-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-11, to=9-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-11, to=8-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-10, to=2-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-11, to=8-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-11, to=6-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-9, to=7-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-10, to=7-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-10, to=2-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-10, to=8-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-11, to=9-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-11, to=8-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-12, to=10-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-12, to=1-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-12, to=8-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-12, to=7-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-13, to=5-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-13, to=3-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-11, to=6-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-11, to=9-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-13, to=9-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-13, to=7-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-13, to=6-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=7-14, to=4-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-11, to=6-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-11, to=9-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-12, to=6-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-12, to=8-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-12, to=9-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-13, to=9-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-13, to=7-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-13, to=6-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-14, to=10-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-14, to=7-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-14, to=2-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-14, to=6-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-15, to=8-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=8-15, to=6-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-12, to=2-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-12, to=10-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-12, to=7-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-13, to=3-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-12, to=2-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-12, to=10-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-12, to=7-9]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-13, to=10-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-13, to=8-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-13, to=9-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-13, to=6-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-13, to=4-10]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-14, to=10-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-14, to=4-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-14, to=5-11]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-15, to=5-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=9-15, to=4-12]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-16, to=9-13]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-16, to=5-13]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-16, to=10-13]
+\arrow["\Sq_3"{description},curve={height=12pt},from=6-16, to=7-13]
+\arrow["\Sq_3"{description},curve={height=12pt},from=10-8, to=3-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-9, to=7-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-10, to=9-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=11-8, to=3-5]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-9, to=8-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-9, to=7-6]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-10, to=8-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=12-10, to=7-7]
+\arrow["\Sq_3"{description},curve={height=12pt},from=13-11, to=11-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=13-11, to=10-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=13-11, to=6-8]
+\arrow["\Sq_3"{description},curve={height=12pt},from=13-12, to=6-9]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_4"{description},curve={height=12pt},from=2-6, to=1-2]
+\arrow["\Sq_4"{description},curve={height=12pt},from=1-7, to=1-3]
+\arrow["\Sq_4"{description},curve={height=12pt},from=1-9, to=3-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=1-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-12, to=1-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=1-14, to=1-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-15, to=2-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-16, to=2-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-9, to=3-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-12, to=1-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-13, to=2-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-13, to=1-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-14, to=1-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-15, to=3-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-15, to=1-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-15, to=2-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-16, to=2-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-17, to=2-13]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-17, to=4-13]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-17, to=3-13]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-8, to=3-4]
+\arrow["\Sq_4"{description},curve={height=12pt},from=3-9, to=4-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-8, to=3-4]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-7, to=3-3]
+\arrow["\Sq_4"{description},curve={height=12pt},from=5-9, to=6-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=5-9, to=5-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=5-9, to=4-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=2-10, to=5-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-15, to=4-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=5-16, to=4-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=4-10, to=7-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=5-11, to=7-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-12, to=8-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-10, to=7-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-9, to=3-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-11, to=8-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-11, to=7-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-12, to=9-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-12, to=6-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-13, to=1-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-13, to=6-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-10, to=7-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-11, to=2-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-12, to=9-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-12, to=8-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-14, to=7-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=7-14, to=5-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-12, to=6-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-12, to=9-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-14, to=5-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-14, to=9-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-14, to=7-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-14, to=6-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-15, to=7-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=8-15, to=4-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-10, to=7-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-11, to=8-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-11, to=7-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-12, to=9-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-12, to=6-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-13, to=10-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-13, to=6-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=12-12, to=9-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=12-12, to=8-8]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-13, to=9-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-13, to=2-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-13, to=10-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-13, to=8-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-13, to=7-9]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-14, to=8-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-14, to=5-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-14, to=3-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-14, to=6-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-14, to=9-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=10-14, to=7-10]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-15, to=8-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-15, to=10-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=9-15, to=7-11]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-16, to=7-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-16, to=8-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-16, to=5-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-16, to=4-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=6-16, to=6-12]
+\arrow["\Sq_4"{description},curve={height=12pt},from=11-10, to=7-6]
+\arrow["\Sq_4"{description},curve={height=12pt},from=12-9, to=3-5]
+\arrow["\Sq_4"{description},curve={height=12pt},from=13-11, to=9-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=13-11, to=8-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=13-11, to=7-7]
+\arrow["\Sq_4"{description},curve={height=12pt},from=13-12, to=10-8]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_6"{description},curve={height=12pt},from=1-11, to=3-5]
+\arrow["\Sq_6"{description},curve={height=12pt},from=2-13, to=2-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=3-13, to=2-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=2-14, to=1-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=2-16, to=1-10]
+\arrow["\Sq_6"{description},curve={height=12pt},from=3-11, to=3-5]
+\arrow["\Sq_6"{description},curve={height=12pt},from=4-15, to=2-9]
+\arrow["\Sq_6"{description},curve={height=12pt},from=4-15, to=1-9]
+\arrow["\Sq_6"{description},curve={height=12pt},from=3-16, to=1-10]
+\arrow["\Sq_6"{description},curve={height=12pt},from=3-17, to=3-11]
+\arrow["\Sq_6"{description},curve={height=12pt},from=3-17, to=1-11]
+\arrow["\Sq_6"{description},curve={height=12pt},from=7-12, to=7-6]
+\arrow["\Sq_6"{description},curve={height=12pt},from=7-13, to=7-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=8-13, to=2-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=7-14, to=8-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=10-12, to=7-6]
+\arrow["\Sq_6"{description},curve={height=12pt},from=8-14, to=9-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=8-14, to=8-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=11-12, to=7-6]
+\arrow["\Sq_6"{description},curve={height=12pt},from=10-13, to=7-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=11-13, to=2-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=11-13, to=8-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=11-13, to=7-7]
+\arrow["\Sq_6"{description},curve={height=12pt},from=9-14, to=8-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=10-14, to=9-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=10-14, to=8-8]
+\arrow["\Sq_6"{description},curve={height=12pt},from=9-15, to=10-9]
+\arrow["\Sq_6"{description},curve={height=12pt},from=9-15, to=1-9]
+\arrow["\Sq_6"{description},curve={height=12pt},from=6-16, to=7-10]
+\arrow["\Sq_6"{description},curve={height=12pt},from=6-16, to=5-10]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_5"{description},curve={height=12pt},from=2-12, to=2-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=2-17, to=2-12]
+\arrow["\Sq_5"{description},curve={height=12pt},from=3-12, to=2-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=3-15, to=1-10]
+\arrow["\Sq_5"{description},curve={height=12pt},from=3-16, to=2-11]
+\arrow["\Sq_5"{description},curve={height=12pt},from=5-9, to=3-4]
+\arrow["\Sq_5"{description},curve={height=12pt},from=2-10, to=4-5]
+\arrow["\Sq_5"{description},curve={height=12pt},from=7-11, to=7-6]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-10, to=3-5]
+\arrow["\Sq_5"{description},curve={height=12pt},from=7-12, to=2-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=7-12, to=8-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=7-12, to=7-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=7-13, to=8-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-12, to=2-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=9-11, to=7-6]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-13, to=9-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-13, to=8-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=10-11, to=7-6]
+\arrow["\Sq_5"{description},curve={height=12pt},from=10-12, to=2-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=9-13, to=9-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=9-13, to=8-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-15, to=7-10]
+\arrow["\Sq_5"{description},curve={height=12pt},from=8-15, to=5-10]
+\arrow["\Sq_5"{description},curve={height=12pt},from=10-10, to=3-5]
+\arrow["\Sq_5"{description},curve={height=12pt},from=11-12, to=8-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=11-12, to=7-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=12-12, to=8-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=12-12, to=7-7]
+\arrow["\Sq_5"{description},curve={height=12pt},from=11-13, to=8-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=11-13, to=6-8]
+\arrow["\Sq_5"{description},curve={height=12pt},from=9-14, to=10-9]
+\arrow["\Sq_5"{description},curve={height=12pt},from=9-14, to=6-9]
+\arrow["\Sq_5"{description},curve={height=12pt},from=10-14, to=2-9]
+\arrow["\Sq_5"{description},curve={height=12pt},from=10-14, to=1-9]
+\arrow["\Sq_5"{description},curve={height=12pt},from=6-16, to=8-11]
+\arrow["\Sq_5"{description},curve={height=12pt},from=6-16, to=10-11]
+\arrow["\Sq_5"{description},curve={height=12pt},from=6-16, to=7-11]
+\arrow["\Sq_5"{description},curve={height=12pt},from=6-16, to=4-11]
+\arrow["\Sq_5"{description},curve={height=12pt},from=13-11, to=7-6]
+\arrow["\Sq_5"{description},curve={height=12pt},from=13-12, to=7-7]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_7"{description},curve={height=12pt},from=1-14, to=2-7]
+\arrow["\Sq_7"{description},curve={height=12pt},from=2-15, to=1-8]
+\arrow["\Sq_7"{description},curve={height=12pt},from=2-17, to=1-10]
+\arrow["\Sq_7"{description},curve={height=12pt},from=3-12, to=3-5]
+\arrow["\Sq_7"{description},curve={height=12pt},from=3-16, to=2-9]
+\arrow["\Sq_7"{description},curve={height=12pt},from=3-16, to=1-9]
+\arrow["\Sq_7"{description},curve={height=12pt},from=8-14, to=2-7]
+\arrow["\Sq_7"{description},curve={height=12pt},from=8-15, to=8-8]
+\arrow["\Sq_7"{description},curve={height=12pt},from=11-13, to=7-6]
+\arrow["\Sq_7"{description},curve={height=12pt},from=9-14, to=7-7]
+\arrow["\Sq_7"{description},curve={height=12pt},from=6-16, to=10-9]
+\arrow["\Sq_7"{description},curve={height=12pt},from=6-16, to=1-9]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_8"{description},curve={height=12pt},from=2-15, to=2-7]
+\arrow["\Sq_8"{description},curve={height=12pt},from=2-16, to=1-8]
+\arrow["\Sq_8"{description},curve={height=12pt},from=4-15, to=2-7]
+\arrow["\Sq_8"{description},curve={height=12pt},from=3-16, to=1-8]
+\arrow["\Sq_8"{description},curve={height=12pt},from=3-17, to=2-9]
+\arrow["\Sq_8"{description},curve={height=12pt},from=3-17, to=1-9]
+\arrow["\Sq_8"{description},curve={height=12pt},from=4-17, to=1-9]
+\arrow["\Sq_8"{description},curve={height=12pt},from=6-16, to=8-8]
+    \end{tikzcd}
+
+
+    \begin{tikzcd}
+    Q_0(x_0) & Q_1(x_0) & Q_2(x_0) & Q_3(x_0) & Q_4(x_0) & \left [x_0,x_1 \right ] & Q_4(x_1) & Q_1(Q_1(x_0)) & Q_0(Q_2(x_0)) & Q_1(Q_2(x_0)) & Q_2(Q_2(x_0)) & \left [x_0,\left [x_0,x_1 \right ] \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] & Q_3(Q_3(x_0)) & Q_0(\left [x_0,x_1 \right ]) & Q_1(\left [x_0,x_1 \right ]) & Q_2(\left [x_0,x_1 \right ])\\
+ & x_1 * x_0 & Q_0(x_1) & Q_1(x_1) & Q_2(x_1) & Q_3(x_1) & Q_0(Q_1(x_0)) & \left [x_0,x_1 \right ] * x_0 & Q_0(Q_0(x_1)) & Q_4(x_1) * x_1 & Q_0(Q_3(x_0)) & Q_1(Q_3(x_0)) & Q_2(Q_3(x_0)) & Q_1(Q_4(x_0)) & Q_2(Q_4(x_0)) & Q_3(Q_4(x_0)) & Q_4(Q_4(x_0))\\
+ &  & Q_0(x_0) * x_0 & Q_1(x_0) * x_0 & Q_0(Q_0(x_0)) & Q_3(x_0) * x_0 & Q_4(x_0) * x_0 & Q_3(x_1) * x_0 & Q_4(x_1) * x_0 & Q_0(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_1(x_1)) & Q_1(Q_1(x_1)) & Q_0(Q_4(x_0)) & Q_1(Q_2(x_1)) & Q_2(Q_2(x_1)) & Q_1(Q_3(x_1)) & Q_2(Q_3(x_1))\\
+ &  &  & Q_0(x_0) * x_1 & Q_2(x_0) * x_0 & Q_1(x_1) * x_0 & Q_2(x_1) * x_0 & Q_4(x_0) * x_1 & \left [x_0,x_1 \right ] * x_1 & Q_3(x_1) * Q_0(x_0) & Q_1(x_0) * \left [x_0,x_1 \right ] & Q_2(x_0) * \left [x_0,x_1 \right ] & Q_0(Q_2(x_1)) & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_0 & Q_0(Q_3(x_1)) & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_1 & Q_0(Q_4(x_1))\\
+ &  &  &  & Q_0(x_1) * x_0 & Q_2(x_0) * x_1 & Q_3(x_0) * x_1 & Q_2(x_1) * x_1 & Q_3(x_1) * x_1 & Q_4(x_0) * Q_1(x_0) & Q_4(x_1) * Q_0(x_0) & Q_0(x_1) * \left [x_0,x_1 \right ] & Q_3(x_0) * \left [x_0,x_1 \right ] & Q_4(x_0) * \left [x_0,x_1 \right ] & \left [x_1,\left [x_0,x_1 \right ] \right ] * x_0 & Q_4(x_1) * \left [x_0,x_1 \right ] & \\
+ &  &  &  & Q_1(x_0) * x_1 & Q_0(x_1) * x_1 & Q_1(x_1) * x_1 & Q_3(x_0) * Q_0(x_0) & Q_4(x_0) * Q_0(x_0) & Q_2(x_1) * Q_1(x_0) & Q_3(x_1) * Q_1(x_0) & Q_4(x_1) * Q_1(x_0) & Q_1(x_1) * \left [x_0,x_1 \right ] & Q_2(x_1) * \left [x_0,x_1 \right ] & \left [x_0,\left [x_0,x_1 \right ] \right ] * x_1 & Q_4(x_1) * Q_3(x_1) & \\
+ &  &  &  &  & Q_1(x_0) * Q_0(x_0) & Q_2(x_0) * Q_0(x_0) & Q_1(x_1) * Q_0(x_0) & Q_2(x_1) * Q_0(x_0) & Q_3(x_0) * Q_2(x_0) & Q_4(x_0) * Q_2(x_0) & Q_3(x_1) * Q_2(x_0) & Q_4(x_1) * Q_2(x_0) & Q_4(x_1) * Q_3(x_0) & Q_3(x_1) * \left [x_0,x_1 \right ] &  & \\
+ &  &  &  &  & Q_0(x_0) * x_1 * x_0 & Q_0(x_1) * Q_0(x_0) & Q_2(x_0) * Q_1(x_0) & Q_3(x_0) * Q_1(x_0) & Q_1(x_1) * Q_2(x_0) & Q_2(x_1) * Q_2(x_0) & Q_4(x_0) * Q_3(x_0) & Q_3(x_1) * Q_3(x_0) & Q_3(x_1) * Q_4(x_0) & Q_4(x_1) * Q_4(x_0) &  & \\
+ &  &  &  &  &  & Q_1(x_0) * x_1 * x_0 & Q_0(x_1) * Q_1(x_0) & Q_1(x_1) * Q_1(x_0) & Q_0(x_1) * Q_3(x_0) & Q_1(x_1) * Q_3(x_0) & Q_2(x_1) * Q_3(x_0) & Q_2(x_1) * Q_4(x_0) & Q_4(x_1) * Q_1(x_1) & Q_4(x_1) * Q_2(x_1) &  & \\
+ &  &  &  &  &  &  & Q_2(x_0) * x_1 * x_0 & Q_0(x_1) * Q_2(x_0) & Q_1(x_1) * Q_0(x_1) & Q_0(x_1) * Q_4(x_0) & Q_1(x_1) * Q_4(x_0) & Q_4(x_1) * Q_0(x_1) & Q_3(x_1) * Q_2(x_1) &  &  & \\
+ &  &  &  &  &  &  & Q_0(x_1) * x_1 * x_0 & Q_3(x_0) * x_1 * x_0 & Q_4(x_0) * x_1 * x_0 & Q_2(x_1) * Q_0(x_1) & Q_3(x_1) * Q_0(x_1) & Q_3(x_1) * Q_1(x_1) &  &  &  & \\
+ &  &  &  &  &  &  &  & Q_1(x_1) * x_1 * x_0 & Q_2(x_1) * x_1 * x_0 & \left [x_0,x_1 \right ] * x_1 * x_0 & Q_2(x_1) * Q_1(x_1) &  &  &  &  & \\
+ &  &  &  &  &  &  &  &  &  & Q_3(x_1) * x_1 * x_0 & Q_4(x_1) * x_1 * x_0 &  &  &  &  & 
+    \arrow["\Sq_9"{description},curve={height=12pt},from=2-17, to=1-8]
+\arrow["\Sq_9"{description},curve={height=12pt},from=3-16, to=2-7]
+    \end{tikzcd}
